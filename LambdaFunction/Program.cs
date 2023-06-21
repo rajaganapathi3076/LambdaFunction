@@ -13,22 +13,22 @@ namespace LambdaFunction
         {
             Console.WriteLine("Welcome to UserRegister In LambdaFunction UC3");
 
-            Console.WriteLine("Enter your Email Id");
-            string EmailId=Console.ReadLine();
+            Console.WriteLine("Enter your PhoneNumber");
+            string PhoneNumber=Console.ReadLine();
 
-            Func<string, bool> validateEmailId = (name) =>
+            Func<string, bool> validatePhoneNumber = (name) =>
             {
-                Regex pattern = new Regex(@"^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*\.(?:[a-zA-Z]{2,})$");
-                return pattern.IsMatch(EmailId);
+                Regex pattern = new Regex(@"^91[6-9]{1}[0-9]{9}$");
+                return pattern.IsMatch(PhoneNumber);
             };
 
-            if(validateEmailId(EmailId) )
+            if(validatePhoneNumber(PhoneNumber) )
             {
-                Console.WriteLine("Valid EmailId");
+                Console.WriteLine("Valid PhoneNumber");
             }
             else
             {
-                Console.WriteLine("Not Valid EmailId.");
+                Console.WriteLine("Not Valid PhoneNumber.");
             }
         }
     }
