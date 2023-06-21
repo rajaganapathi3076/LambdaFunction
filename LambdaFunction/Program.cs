@@ -11,24 +11,24 @@ namespace LambdaFunction
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to UserRegister In LambdaFunction UC2");
+            Console.WriteLine("Welcome to UserRegister In LambdaFunction UC3");
 
-            Console.WriteLine("Enter your Last name");
-            string LastName=Console.ReadLine();
+            Console.WriteLine("Enter your Email Id");
+            string EmailId=Console.ReadLine();
 
-            Func<string, bool> validateLastName = (name) =>
+            Func<string, bool> validateEmailId = (name) =>
             {
-                Regex pattern = new Regex(@"^[A-Z][a-zA-Z]{2,}$");
-                return pattern.IsMatch(name);
+                Regex pattern = new Regex(@"^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*\.(?:[a-zA-Z]{2,})$");
+                return pattern.IsMatch(EmailId);
             };
 
-            if(validateLastName(LastName) )
+            if(validateEmailId(EmailId) )
             {
-                Console.WriteLine("Valid First Name");
+                Console.WriteLine("Valid EmailId");
             }
             else
             {
-                Console.WriteLine("Not Valid Last Name \t\nFirst name should start with a capital letter and have a minimum of 3 characters.");
+                Console.WriteLine("Not Valid EmailId.");
             }
         }
     }
